@@ -9,11 +9,12 @@ const Hero = () => {
       style={{ 
         minHeight: '100vh', 
         display: 'flex', 
-        flexDirection: 'column', 
-        justifyContent: 'center' 
+        alignItems: 'center', 
+        paddingTop: '6rem'
       }}
     >
-      <div style={{ maxWidth: '800px', marginTop: '4rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap-reverse', width: '100%' }}>
+        <div style={{ flex: '1 1 500px' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -113,6 +114,36 @@ const Hero = () => {
           >
             Download Resume <Download size={20} />
           </a>
+        </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, x: 30 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center' }}
+        >
+          <div style={{ 
+            width: '100%', 
+            maxWidth: '380px', 
+            aspectRatio: '1/1', 
+            borderRadius: '2rem', 
+            overflow: 'hidden',
+            border: '2px solid var(--glass-border)',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.3), 0 0 40px rgba(99, 102, 241, 0.2)',
+            position: 'relative',
+            transform: 'rotate(2deg)',
+            transition: 'transform 0.4s ease'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.transform = 'rotate(0deg) scale(1.02)'}
+          onMouseOut={(e) => e.currentTarget.style.transform = 'rotate(2deg) scale(1)'}
+          >
+            <img 
+              src="/profile.png" 
+              alt="Saiyam Basnet" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+            />
+          </div>
         </motion.div>
       </div>
     </section>
